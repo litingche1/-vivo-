@@ -1,15 +1,13 @@
 <template>
-	<div id="header" class="clearfix">
+	<div id="header1">
 		<div class="h_left" @click="dj">
-			<i class="iconfont" v-show="ishows">&#xe629;</i>
-			<i class="iconfont icon" v-show="ishow">&#xe85c;</i>
+			<i class="iconfont icon">&#xe85c;</i>
 		</div>
 		<div class="h_img">
-			<a href="//www.vivo.com.cn/"><img src="../assets/imgs/2018-10-17_155856.jpg" alt="" /></a>
+			<input type="text" placeholder="Z3" id="shuk">
 		</div>
 		<div class='h_r'>
-			<i class="iconfont iconfont1" @click="isbool">&#xe62a;</i>
-			<i class="iconfont iconfont2" @click="isxr">&#xe627;</i>
+			<i class="iconfont iconfont1">&#xe62a;</i>
 		</div>
 	</div>
 
@@ -19,56 +17,32 @@
 	export default {
 		data() {
 			return {
-				ishows: true,
-				ishow: false,
+
 			}
 		},
-		props: ["title"],
 		methods: {
 			dj() {
-				this.$store.state.shows = !this.$store.state.shows
-				// console.log(this.$store.state.shows)
-
-			},
-			isbool() {
 				this.$store.state.bool = !this.$store.state.bool
-				// console.log(this.$store.state.bool);
-			},
-			isxr() {
-				this.$store.state.xr = !this.$store.state.xr
-				// console.log(this.$store.state.xr);
 			}
-
 		},
 		mounted() {
-			// if(this.title="g"){
-			//   // this.ishows = !this.ishows;
-			//   // this.ishow = !this.ishow;
-			// }
-			if(this.title === "t") {
 
-				this.ishows = !this.ishows;
-				this.ishow = !this.ishow;
-				console.log(this.ishows);
-				console.log(this.ishow);
-			}
 		}
 	}
 </script>
 
 <style scoped>
-	#header {
+	#header1 {
 		width: 100%;
 		position: fixed;
 		top: 0;
 		left: 0;
 		display: flex;
 		height: 56px;
-		/*margin-bottom: 50px;*/
 		flex-direction: row;
 		background: #212121;
 		justify-content: space-between;
-		z-index: 600;
+		z-index: 1000;
 	}
 	
 	.h_left {
@@ -91,17 +65,9 @@
 		flex-direction: row;
 	}
 	
-	#header .logo-container {
-		position: absolute;
-		left: 50%;
-		top: 0;
-		display: flex;
-		-webkit-box-pack: center;
-		align-items: center;
-		width: 2.82rem;
-		height: 100%;
-		margin-left: -1.41rem;
-		opacity: 1;
+	#shuk {
+		width: 100%;
+		background: #212121;
 	}
 	
 	.iconfont {

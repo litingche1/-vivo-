@@ -1,36 +1,37 @@
 <template>
 	<transition name="bounce">
-		<div id="app2" v-show="isshow">
-			<xheader title="t"></xheader>
-			<xxk></xxk>
+		<div id="app3" v-show="isshow">
+			<xheader2></xheader2>
+			<xsearch1></xsearch1>
+
 		</div>
 	</transition>
 </template>
 
 <script>
-	import xheader from "../components/Xheader.vue"
-	import xxk from "../components/Xxk.vue"
+	import xheader2 from "../components/Xheader2.vue"
+	import xsearch1 from "../components/xsearch.vue"
 
 	export default {
 		data() {
 			return {
-
+				kk: true,
 			}
 		},
 		components: {
-			xxk,
-			xheader,
+			xsearch1,
+			xheader2,
 		},
 		computed: {
 			isshow() {
-				return this.$store.state.shows;
+				return this.$store.state.bool;
 			}
 		}
 	}
 </script>
 
 <style>
-	#app2 {
+	#app3 {
 		width: 100%;
 		height: 100%;
 		background: #0d0d0d;

@@ -1,22 +1,28 @@
 <template>
-  <div id="app">
+  <div id="app" class="clearfix">
     <router-view></router-view>
-    <xtb></xtb>
+    <!--<xtb></xtb>
+    <xsea></xsea>
+    <xr></xr>
+    <xback></xback> -->
   </div>
 </template>
 
 <script>
-import xtb from './cons/Xtb.vue'
+//import xtb from './cons/Xtb.vue'
+//import xsea from './cons/Xsearch.vue'
+//import xr from './cons/Xr.vue'
+//import xback from './cons/Xback.vue'
 export default {
   name: 'app',
   components: {
-   xtb,
+   
   }
 }
 </script>
 
 <style>
- /*(1)清除默认样式*/
+/*(1)清除默认样式*/
 html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img,input{ margin:0; padding:0; }
 fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:none; }   /*去掉input等聚焦时的蓝色边框*/
 ul,li,ol{ list-style:none; }
