@@ -2,16 +2,17 @@
 	<div id="app3" v-show="isxrs">
 		<ul>
 			<li>
-				<a href="" class="app3_a1">购物车</a>
+				<a href="javascript:;" class="app3_a1" @click="shoppingCar">购物车</a>
 			</li>
 			<li>
-				<a href="" class="app3_a2">我的订单</a>
+				<a href="javascript:;" class="app3_a2" @click="shoppingList">我的订单</a>
 			</li>
 			<li>
-				<a href="" class="app3_a3">我的商城</a>
+				<a href="#/xmyshopping" class="app3_a3" @click="my">我的商城</a>
 			</li>
 			<li>
-				<a  class="app3_a4" @click="dz">登陆/注册</a>
+				<a  class="app3_a4" @click="dz" v-show="zcDl">登陆/注册</a>
+				<a  class="app3_a4" v-show="dlshow" @click="removeDl">退出登录</a>
 			</li>
 		</ul>
 	</div>
@@ -19,15 +20,46 @@
 
 <script>
 	export default {
+		data(){
+			return{
+			}
+		},
 		computed: {
 			isxrs() {
 				return this.$store.state.xr;
+			},
+			dlshow(){
+				return this.$store.state.dl;
+			},
+			zcDl(){
+				return this.$store.state.zcdl;
 			}
 		},
 		methods:{
 			dz(){
-				location.href="#/xreight"
+				this.$store.state.xr=!this.$store.state.xr;
+				location.href="#/xlogin";
+			},
+			shoppingCar(){
+				this.$store.state.xr=!this.$store.state.xr;
+				location.href="#/shoppingcar"
+			},
+			shoppingList(){
+				this.$store.state.xr=!this.$store.state.xr;
+			},
+			my(){
+				this.$store.state.xr=!this.$store.state.xr;
+//				location.href="#/xmyshopping"
+			},
+			removeDl(){
+				var data=new Date();
+				data.setDate(data.getDate()-15);
+//			
+				document.cookie="username=x" + ";expires=" + data.toUTCString();
+			
+				location.reload();
 			}
+			
 		}
 	}
 </script>
@@ -36,11 +68,11 @@
 	#app3 {
 		width: 40%;
 		height: 26%;
-		position: absolute;
+		position: flex;
 		top: 56px;
 		left: 56%;
 		background: #fff;
-		z-index:700;
+		z-index:1000;
 	}
 	
 	#app3 ul {

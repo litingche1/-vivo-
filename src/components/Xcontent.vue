@@ -10,30 +10,32 @@
 		<h2 class="floor__title">热卖专区</h2>
 		<div class="rm clearfix">
 			<ul class="rmlist clearfix">
-				<li>
-					<a href=""><img src="../assets/imgs/2018092614475745818_original.jpg" class="rm_ii" alt="" /></a>
+				<li id="10486" class="djsj">
+					<a href="javascript:;"><img src="../assets/imgs/2018092614475745818_original.jpg" class="rm_ii" alt="" /></a>
 				</li>
-				<li v-for="b in imgArr" :key="b.id">
-					<a href="" class="rm_a"><img :src="b" alt="" class="rm_i" /></a>
+				<li id="10349" class="djsj">
+					<a href="javascript:;" class="rm_a"><img src="../assets/imgs/z3.jpg" alt="" class="rm_i" /></a>
 				</li>
-
+				<li id="10391" class="djsj">
+					<a href="javascript:;" class="rm_a"><img src="../assets/imgs/nex.jpg" alt="" class="rm_i" /></a>
+				</li>
 			</ul>
 		</div>
 		<h2 class="floor__title">精品手机</h2>
 		<div class="jpsj">
-			<ul class="jplist">
-				<li>
-					<a href="" class="jp_a"><img src="../assets/imgs/z1.jpg" alt="" class="jp_ii" /></a>
+			<ul class="jplist scsp">
+				<li id="10636" class="djsj">
+					<a href="javascript:;" class="jp_a"><img src="../assets/imgs/z1.jpg" alt="" class="jp_ii" /></a>
 				</li>
-			 	<li v-for="(c,index) in arrs">
-					<a href="" class="jp_a">
+				<li v-for="(c,index) in arrs" :id="c._id" class="djsj">
+					<a href="javascript:;" class="jp_a">
 						<img :src="c.imgUrl" alt="" class="jp_i" />
 						<h3 v-text="c.name" class="jpname"></h3>
 						<p v-text="c.ms" class="jpms"></p>
 						<p class="jp_price">{{"￥"+c.price}}</p>
 					</a>
 				</li>
-	
+
 			</ul>
 			<div class="gd">
 				<a href="" class="gd_a">更多热卖手机></a>
@@ -44,60 +46,62 @@
 			<img src="../assets/imgs/wl.jpg" alt="" />
 		</div>
 		<div class="jppj">
-			<ul class="jp_ul">
-				<li v-for="d in arr">
-					<a href="" class="jp_a"><img :src="d.imgUrl" alt="" class="jp_ii" />
+			<ul class="jp_ul scsp">
+				<li v-for="d in arr" :id="d._id" class="djsj">
+					<a href="javascript:;" class="jp_a"><img :src="d.imgUrl" alt="" class="jp_ii" />
 						<h3 v-text="d.name" class="jpname"></h3>
 						<p v-text="d.ms" class="jpms"></p>
 						<p class="jp_price">{{"￥"+d.price}}</p>
 					</a>
 				</li>
-				
+
 			</ul>
 			<div class="gd">
 				<a href="" class="gd_a">更多热卖配件></a>
 			</div>
 		</div>
 		<aside class="aside">
-        <ul>
-            <li class="aside__item">
-                <a id="j_goTop" class="aside__item__link" href="javascript:;" @click="dj"></a>
-            </li>
-        </ul>
-    </aside>
+			<ul>
+				<li class="aside__item">
+					<a id="j_goTop" class="aside__item__link" href="javascript:;" @click="dj"></a>
+				</li>
+			</ul>
+		</aside>
 		<h2 class="floor__title">热点推荐</h2>
 		<div class="foot_div">
-		<ul class="div_ul">
-			<li><a href=""> NEX旗舰版</a></li>
-			<li><a href="">Z1全面屏</a></li>
-			<li><a href="">X23水滴屏</a></li>
-			<li><a href="">Y75s全面屏</a></li>
-			<li><a href="">NEX充电器</a></li>
-			<li><a href="">闪充充电器</a></li>
-			<li><a href="">HiFi耳机</a></li>
-			<li><a href="">碎屏宝</a></li>
-		</ul>
+			<ul class="div_ul">
+				<li>
+					<a href=""> NEX旗舰版</a>
+				</li>
+				<li>
+					<a href="">Z1全面屏</a>
+				</li>
+				<li>
+					<a href="">X23水滴屏</a>
+				</li>
+				<li>
+					<a href="">Y75s全面屏</a>
+				</li>
+				<li>
+					<a href="">NEX充电器</a>
+				</li>
+				<li>
+					<a href="">闪充充电器</a>
+				</li>
+				<li>
+					<a href="">HiFi耳机</a>
+				</li>
+				<li>
+					<a href="">碎屏宝</a>
+				</li>
+			</ul>
 		</div>
-		<footer class="clearfix">
-			<div class="f_t clearfix">
-				<a href="#">特色服务</a>
-				<a href="#">小v客服</a>
-				<a href="#">登陆/注册</a>
-				<a href="#">选购手机</a>
-			</div>
-			<div class="copyright">
-			<p>©2017shop.vivo.com.cn</p>
-			<a class="gdgs-hd" href="http://wljg.gdgs.gov.cn/corpsrch.aspx?key=441900000425711">
-				<img src="https://shopstatic.vivo.com.cn/vivoshop/wap/dist/images/common/gssw-icon_db0a7f6.png" alt="">
-			</a>
-		</div>
-		</footer>
+
 	</div>
 </template>
 
 <script>
 	import $ from "jquery"
-//	import common from ""
 	export default {
 		data() {
 			return {
@@ -111,69 +115,54 @@
 					require("../assets/imgs/dz.png"),
 					require("../assets/imgs/sp.png"),
 				],
-				imgArr: [
-					require("../assets/imgs/z3.jpg"),
-					require("../assets/imgs/nex.jpg"),
-
-				],
-//				jpImg: [
-//					require("../assets/imgs/z11.png"),
-//					require("../assets/imgs/x211.png"),
-//					require("../assets/imgs/Y97.png"),
-//					require("../assets/imgs/x21.png"),
-//					require("../assets/imgs/y75s.png"),
-//					require("../assets/imgs/y81s.png"),
-//
-//				],
 				arrs: [],
-				arr:[],
-//				spImg: [
-//					require("../assets/imgs/shujx.png"),
-//					require("../assets/imgs/cdt.png"),
-//					require("../assets/imgs/ej.png"),
-//					require("../assets/imgs/bhm.png"),
-//					require("../assets/imgs/znej.png"),
-//					require("../assets/imgs/sh.png"),
-//				]
+				arr: [],
 			}
 		},
 		methods: {
 			dj() {
-//				console.log($(window))
-           if(window.scrollY>500){
-           	let timer=setInterval(function(){
-           		console.log(window.scrollY)
-           			let speed = window.scrollY/10;
+				//				console.log($(window))
+				if(window.scrollY > 500) {
+					let timer = setInterval(function() {
+						console.log(window.scrollY)
+						let speed = window.scrollY / 10;
 
+						scrollBy(0, -speed);
 
-					scrollBy(0,-speed);
+						if(window.scrollY <= 0) {
+							clearInterval(timer);
 
-					if(window.scrollY <= 0){
-						clearInterval(timer);
+							// 重置目标值
+							scrollTo(0, 0);
+						}
+					}, 30)
+				}
+			},
 
-						// 重置目标值
-						scrollTo(0,0);
-					}
-           	},30)
-           }
-			}
 		},
 		mounted() {
-			var self = this
-		
+			var self = this;
+
 			$.ajax({
 				type: "get",
 				url: "http://localhost:9000/show",
 				data: {},
 				success(data) {
-//					console.log(data)
-					self.arrs = data.slice(3,9);
-					 console.log(self.arrs);
-					self.arr=data.slice(9,15);
-//					console.log(self.arr);
+					//					console.log(data)
+					self.arrs = data.slice(3, 9);
+					console.log(self.arrs);
+					self.arr = data.slice(9, 15);
+					//					console.log(self.arr);
 				}
 			});
-			
+			$(".djsj").click(function() {
+//				console.log(this.id)
+				location.href = "#/xspqx?id=" + this.id;
+			})
+			$(".scsp").on("click", "li", function() {
+//				console.log(this.id)
+				location.href = "#/xspqx?id=" + this.id;
+			})
 		}
 
 	}
@@ -274,10 +263,12 @@
 		width: 100%;
 		height: 200px;
 	}
-	.jppj{
+	
+	.jppj {
 		margin-top: 20px;
 	}
-		.jp_ul {
+	
+	.jp_ul {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -286,14 +277,12 @@
 	.jp_ul li {
 		width: 50%;
 		height: 250px;
-
 		/*background: red;*/
 	}
 	
-	
 	.jp_a {
-		display:block;
-        height: 250px;
+		display: block;
+		height: 250px;
 		color: #000;
 	}
 	
@@ -302,7 +291,7 @@
 		height: 150px;
 	}
 	
-	 .jp_ii {
+	.jp_ii {
 		width: 100%;
 		height: 150px;
 	}
@@ -326,7 +315,7 @@
 		margin-top: 10px;
 		margin-bottom: 30px;
 		font-size: 14px;
-		color:#000;
+		color: #000;
 		/*	font-weight:700;*/
 		text-align: center;
 		line-height: 14px;
@@ -355,114 +344,40 @@
 		width: 100%;
 		height: 140px;
 	}
-	.foot_div{
-		width: 100%;         border-bottom:2px solid #f7f7f7;
+	
+	.foot_div {
+		width: 100%;
+		border-bottom: 2px solid #f7f7f7;
 	}
-	.div_ul{
-      display:flex;
-      flex-direction:row;
-      flex-wrap:wrap;
-	justify-content: space-around;
-
+	
+	.div_ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
 	}
-	.div_ul li{
+	
+	.div_ul li {
 		width: 21%;
 		height: 40px;
-		display:flex;
-		flex-direction:row;
+		display: flex;
+		flex-direction: row;
 		justify-content: space-around;
 		/*align-items:center;*/
 		/*margin-bottom: 5px;*/
 		margin-top: 5px;
 		/*border:1px solid #666;*/
 	}
-	.div_ul li a{
+	
+	.div_ul li a {
 		width: 100%;
-		height: 20px;	
-		border:3px solid #f3f3f3;
-		color:#333333;
+		height: 20px;
+		border: 3px solid #f3f3f3;
+		color: #333333;
 		font-size: 12px;
 		line-height: 20px;
-		border-radius:10px;
-		align-self:center;
+		border-radius: 10px;
+		align-self: center;
 		text-align: center;
 	}
-	footer{
-		width: 100%;
-		height: 100px;
-		/*margin: 0 auto;*/
-		/*display:flex;
-		flex-direction:row;*/
-
-		/*justify-content: space-around;*/
-	}
-	.f_t{
-	width: 100%;
-   height: 25px;
-   /*margin: auto;*/
-   margin-top: 20px;
-	display:flex;
-	flex-direction:row;
-	justify-content: space-around;	
-	}
-	.f_t a{
-    box-sizing: border-box;
-    position: relative;
-    display: inline-block;
-    flex:1;
-    font-size: 12px;
-    color: #b3b3b3;
-    align-self:center;
-    text-align: center;
-	}
-	.copyright{
-		width: 50%;
-		height: 20px;
-		margin: 0 auto;
-		margin-top: 10px;
-		display:flex;
-		flex-direction: row;
-		justify-content:center;
-	}
-	.copyright p{
-		color:#b8b8b8;
-		flex:8;
-		height: 20px;
-		text-align:right;
-		line-height: 20px;
-		font-size:12px;
-		align-self:center;
-	}
-	.copyright a{
-		display:inline-block;
-        height: 20px;
-		color:#333;
-		margin-left: 3px;
-		flex:1;
-		font-size:12px;
-		align-self:center;
-	}
-	.copyright a img{
-		width: 100%;
-
-	}
-	.aside {
-	display:block;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    height: 50px;
-    width:50px;
-    margin-right: 10px;
-    z-index: 99;
-     border-radius:50%;
-}
-.aside a{
-	 /*border-radius:50%;*/
-	display: block;
-	width:100%;
-	height: 30px;
-	background:green;
-	background: url(../assets/imgs/bg-sidebar_7abaa02.png) no-repeat center -70px; 
-}
 </style>

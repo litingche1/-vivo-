@@ -9,23 +9,22 @@
 		</div>
 		<div class="logo_zd">
 			<div class="l_t">
-				<input type="checkbox" /> 两周内自动登陆
+				<input type="checkbox" class="shuk" @click="djCheck" /> 两周内自动登陆
 			</div>
 			<a href="javascript:;" class="mm">忘记密码?</a>
 		</div>
 		<div class="logo_btn">
-			<button class="btn">登陆</button>
+			<button class="btn" @click="dl">登陆</button>
 		</div>
 		<div class="logo_btn">
-			<button class="btn1">注册vivo账号</button>
+			<button class="btn1" @click="zc">注册vivo账号</button>
 		</div>
 		<div class="third-ctn">
 
 			<div class="text">其它方式登录</div>
 
 			<div class="link-box">
-                <a href="" v-for="a in imgArrs" :key="a.id"> <img :src="a" alt="" /></a>
-				
+				<a href="" v-for="a in imgArrs" :key="a.id"> <img :src="a" alt="" /></a>
 
 			</div>
 		</div>
@@ -33,16 +32,74 @@
 </template>
 
 <script>
+	import $ from "jquery"
+	import common from "../lib/common.js"
 	export default {
 		data() {
 			return {
-              imgArrs:[require("../assets/imgs/qq.png"),
-              require("../assets/imgs/zhifubao.png"),
-              require("../assets/imgs/sina.png"),
-              require("../assets/imgs/renren.png"),
-              ]
+				imgArrs: [require("../assets/imgs/qq.png"),
+					require("../assets/imgs/zhifubao.png"),
+					require("../assets/imgs/sina.png"),
+					require("../assets/imgs/renren.png"),
+				],
+				toggle: true,
 			}
+		},
+		methods: {
+			dl() {
+				var self = this;
+				$.ajax({
+					type: "get",
+					url: "http://localhost:9000/dl",
+					data: {
+						username: $("#user").val(),
+						password: $("#pass").val()
+					},
+					success(data) {
+						console.log(data)
+						if(data === "登陆成功") {
+							self.$store.state.dl = !self.$store.state.dl;
+							self.$store.state.zcdl = !self.$store.state.zcdl;
+							console.log(this.toggle);
+							if($(".shuk").attr("checked")){
+								self.$store.state.dl = !self.$store.state.dl;
+								self.$store.state.zcdl = !self.$store.state.zcdl;
+								var da = new Date();
+								da.setDate(da.getDate() + 14);
+								//                          document.cookie="goodslist="+JSON.stringify(goodslist)+";expires="+da.toUTCString()+";Path="+escape('/');
+								document.cookie = "username=" + $("#user").val() + ";expires=" + da.toUTCString();
+							}else{
+								self.$store.state.dl = !self.$store.state.dl;
+								self.$store.state.zcdl = !self.$store.state.zcdl;
+								document.cookie = "username=" + $("#user").val()
+							}
+//                           self.$store.state.dl = !self.$store.state.dl;
+//								self.$store.state.zcdl = !self.$store.state.zcdl;
+								//                          document.cookie="goodslist="+JSON.stringify(goodslist)+";expires="+da.toUTCString()+";Path="+escape('/');
+								
+							location.href = "#/xindex"
+
+						}
+					}
+				})
+			},
+			zc() {
+
+				location.href = "#/xregiste"
+			},
+
+			djCheck() {
+				if(this.toggle) {
+					$(".shuk").attr("checked", "checked")
+				} else {
+					$(".shuk").removeAttr("checked")
+				}
+				this.toggle = !this.toggle;
+				console.log(this.toggle)
+			}
+
 		}
+
 	}
 </script>
 
@@ -136,43 +193,46 @@
 		color: #666666;
 		font-size: 16px;
 	}
-	.third-ctn{
-		width:100%;
-		height:60px;
-		margin-top:30px;
-		display:flex;
-		flex-direction:row;
-		justify-content:center;
-		flex-wrap:wrap;
-		
+	
+	.third-ctn {
+		width: 100%;
+		height: 60px;
+		margin-top: 30px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
 	}
-	.text{
+	
+	.text {
 		width: 80%;
 		margin: 0 auto;
-		height:20px;
-		text-align:center;
-		font-size:12px;
-		color:#999999;
-			
+		height: 20px;
+		text-align: center;
+		font-size: 12px;
+		color: #999999;
 	}
-	.link-box{
-		width:60%;
-		height:40px;
+	
+	.link-box {
+		width: 60%;
+		height: 40px;
 		margin: 10px auto;
-		display:flex;
-		flex-direction:row;
-		justify-content:center;
-		flex-wrap:wrap;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
 	}
-	.link-box a{
+	
+	.link-box a {
 		display: inline-block;
-		width:20%;
-		height:40px;
-		text-align:center;
-		align-self:center;	
+		width: 20%;
+		height: 40px;
+		text-align: center;
+		align-self: center;
 	}
-	.link-box a img{
-		width:60%;
+	
+	.link-box a img {
+		width: 60%;
 		/*height: 40px;*/
 	}
 </style>

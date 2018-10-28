@@ -17,7 +17,10 @@ export default {
   name: 'app',
   components: {
    
-  }
+  },
+//mounted(){
+//	location.href="#/xindex"
+//}
 }
 </script>
 

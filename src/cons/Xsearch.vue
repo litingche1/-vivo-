@@ -1,4 +1,4 @@
-<template>
+*<template>
 	<transition name="bounce">
 		<div id="app3" v-show="isshow">
 			<xheader2></xheader2>

@@ -1,9 +1,10 @@
+
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 // Connection URL
 const url = 'mongodb://localhost:27017';
 // Database Name
-const dbName = 'xm';
+const dbName = 'spnews';
 
 // Use connect method to connect to the server
 // Redis
@@ -16,7 +17,7 @@ function query(tablename, params, callback) {
 		//查
 		db.collection(tablename).find(params).toArray(function(err, docs) {
 			assert.equal(err, null);
-			console.log("Found the following records");
+			console.log(docs);
 			callback(docs)
 		});
 		//关闭数据库

@@ -9,6 +9,7 @@
 		<section class="guarantees"></section>
 		<xlbt></xlbt>
 		<xcontent></xcontent>
+		<xfooter></xfooter>
 		<xtb></xtb>
 		<xsea></xsea>
 		<xr></xr>
@@ -20,6 +21,7 @@
 	import xheader from "../components/Xheader.vue"
 	import xlbt from "../components/Xlbt.vue"
 	import xcontent from "../components/Xcontent.vue"
+	import xfooter from "../components/xfooter.vue"
 	import xtb from './Xtb.vue'
 	import xsea from './Xsearch.vue'
 	import xr from './Xr.vue'
@@ -32,7 +34,34 @@
 			xtb,
 			xsea,
 			xr,
-			xback
+			xback,
+			xfooter
+		},
+		methods:{
+			getCookie(data) {
+				var kk = document.cookie;
+				var gg = kk.split("; ");
+				var res;
+				gg.forEach(function(item) {
+					var arr = item.split("=");
+					if(arr[0] == data) {
+						res = arr[1];
+					}
+				})
+				console.log(res);
+				return res;
+			}
+			
+		},
+		mounted() {
+			console.log(this.toggle);
+			var ll = this.getCookie("username");
+			if(ll) {
+				this.$store.state.dl=!this.$store.state.dl;
+				this.$store.state.zcdl=!this.$store.state.zcdl;
+				
+				location.href = "#/xindex"
+			}
 		}
 	}
 </script>
