@@ -1,0 +1,65 @@
+<template>
+  <div id="app" class="clearfix">
+    <router-view></router-view>
+    <!--<xtb></xtb>
+    <xsea></xsea>
+    <xr></xr>
+    <xback></xback> -->
+  </div>
+</template>
+
+<script>
+//import xtb from './cons/Xtb.vue'
+//import xsea from './cons/Xsearch.vue'
+//import xr from './cons/Xr.vue'
+//import xback from './cons/Xback.vue'
+export default {
+  name: 'app',
+  components: {
+   
+  },
+//mounted(){
+//	location.href="#/xindex"
+//}
+}
+</script>
+
+<style>
+/*(1)清除默认样式*/
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img,input{ margin:0; padding:0; }
+fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:none; }   /*去掉input等聚焦时的蓝色边框*/
+ul,li,ol{ list-style:none; }
+select, input { vertical-align:middle;}
+textarea { resize:none; } /*防止拖动*/
+img {border:0; vertical-align:middle; }  
+/*  去掉图片低测默认的3像素空白缝隙，或者用display：block也可以*/
+table { border-collapse:collapse; }
+a {text-decoration:none; }
+
+
+
+/*2.添加公共样式*/
+/*body {
+    font:12px Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+    background:#fff;
+}*/
+/*清除浮动（不管）*/
+.clearfix:before,.clearfix:after {  /*清楚浮动*/
+    content:"";
+    display:table;
+}
+.clearfix:after{clear:both;}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+h1,h2,h3,h4,h5,h6 {font-weight:normal;font-size:1em;}  /*设置h标签的大小，设置跟父亲一样大的字体font-size:100%;*/
+s,i,em{font-style:normal;text-decoration:none;}
+
+
+/*公共类*/
+.con {  /*内容、版心 提取 */
+    width: 1150px;
+    margin:0 auto;
+}
+</style>
